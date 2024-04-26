@@ -1,0 +1,80 @@
+﻿@using task5.Models.ViewModel
+@model UserViewModel;
+@{
+    ViewData["Title"] = "Fake Data Generator";
+}
+
+<h1>Fake Data Generator</h1>
+
+<form asp-action="GenerateData" asp-controller="Home" method="post">
+    <div class="form-group">
+        <label asp-for="selectedRegion">Select Region:</label>
+        <select asp-for="selectedRegion" class="form-control" asp-items="@(new SelectList(Model.regions, "Name", "Name"))">
+            <option value="">-- Select Region --</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="errorCount">Error Count:</label>
+        <input asp-for="errorCount" type="range" class="form-control-range" min="0" max="10" step="0.1" value="@Math.Round(Model.errorCount)">
+    </div>
+    <div class="form-group">
+        <label asp-for="errorCountVal">Error Count (Custom Input):</label>
+        <input asp-for="errorCountVal" type="number" class="form-control" min="0" max="1000" step="0.01" value="@Math.Round(Model.errorCountVal)">
+    </div>
+    <div class="form-group">
+        <label asp-for="seed">Seed:</label>
+        <input asp-for="seed" type="number" class="form-control" min="1" max="999" value="@Model.seed">
+        <button type="button" onclick="generateRandomSeed()">Generate Random Seed</button>
+    </div>
+    <div class="form-group">
+        <label asp-for="page">Field:</label>
+        <input asp-for="page" type="number" class="form-control" min="1" max="999" value="@Model.page">
+    </div>
+    <button type="submit" class="btn btn-success">Generate Data</button>
+</form>
+
+@if (Model.users != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.users)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    <td>@user.Address</td>
+                    <td>@user.Phone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (Model.users != null)
+    {
+        <form asp-controller="Home" asp-action="LoadMoreData" method="post">
+            <input type="hidden" asp-for="seed" value="@Model.seed" />
+            <input type="hidden" asp-for="selectedRegion" value="@Model.selectedRegion" />
+            <input type="hidden" asp-for="errorCount" value="@Model.errorCount" />
+            <input type="hidden" asp-for="errorCountVal" value="@Model.errorCountVal" />
+            <input type="hidden" asp-for="page" value="@Model.page" />
+            <input type="hidden" asp-for="users" value="@Model.users" />
+            <button type="submit">Add 10</button>
+        </form>
+    }
+}
+
+<script>
+   function generateRandomSeed() {
+        var randomSeed = Math.floor(Math.random() * 999) + 1;
+        document.getElementById("seed").value = randomSeed;
+    } 
+</script>

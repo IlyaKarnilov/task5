@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Yme4oMtNVFYnN/qUjiAq2NLD81F4JcOwQJtOHutVVd/Di6415+Vcj36Gfc+VR7dHsUETlPALAJJ3myZv6iNcew==",
+  "success": true,
+  "projectFilePath": "D:\\ts\\task5\\task5\\task5.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\bogus\\35.5.0\\bogus.35.5.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.6\\microsoft.visualstudio.azure.containers.tools.targets.1.19.6.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
