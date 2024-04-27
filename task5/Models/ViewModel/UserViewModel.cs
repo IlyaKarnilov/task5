@@ -6,9 +6,9 @@
         public List<User> users { get; set; }
         public string selectedRegion { get; set; } 
         public int seed { get; set; }
-        public double errorCount { get; set; }
-        public double errorCountVal { get; set; }
-        public int page { get; set; } = 10;
+        public float errorCount { get; set; }
+        public float errorCountVal { get; set; }
+        public int page { get; set; } = 1;
 
 
         public UserViewModel() {

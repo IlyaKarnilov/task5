@@ -22,28 +22,24 @@ namespace task5.Controllers
         [HttpPost]
         public IActionResult LoadMoreData(UserViewModel model)
         {
-            model.page += 10;
-            model.users.AddRange(GenerateFakeData(model.selectedRegion, model.errorCountVal, model.seed, model.page));
+            model.seed += model.page*10 -10;
+
+            if(model.users != null) {
+                model.users.AddRange(GenerateFakeData(model.selectedRegion, model.errorCountVal, model.seed)); }
+            else {
+                model.users = GenerateFakeData(model.selectedRegion, model.errorCountVal, model.seed);
+            }
             return View("Index", model);
         }
 
         [HttpPost]
         public IActionResult GenerateData(UserViewModel model)
         {
-            if (model.errorCountVal <= model.errorCount) { 
-                model.errorCountVal = model.errorCount;
-            }
-            else if (model.errorCountVal > 10){
-                model.errorCount = 10;
-            }
-            else{
-                model.errorCount = model.errorCountVal;
-            }
-            model.users = GenerateFakeData(model.selectedRegion, model.errorCountVal, model.seed, model.page);
+            model.users = GenerateFakeData(model.selectedRegion, model.errorCountVal, model.seed);
             return View("Index", model);
         }
 
-        private List<User> GenerateFakeData(string selectedRegion, double errorCount, int seed, int page)
+        private List<User> GenerateFakeData(string selectedRegion, float errorCount, int seed)
         {
             Dictionary<string, string> languageCharacterSets = new Dictionary<string, string>
             {
@@ -141,7 +137,7 @@ namespace task5.Controllers
                     }
                 });
 
-            for (int i = 0; i < page; i++)
+            for (int i = 0; i < 10; i++)
             {
                 fakeData.Add(faker.Generate());
             }
