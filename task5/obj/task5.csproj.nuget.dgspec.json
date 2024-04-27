@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ts\\task5\\task5\\task5.csproj": {}
+    "D:\\resp\\task5\\task5.csproj": {}
   },
   "projects": {
-    "D:\\ts\\task5\\task5\\task5.csproj": {
+    "D:\\resp\\task5\\task5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ts\\task5\\task5\\task5.csproj",
+        "projectUniqueName": "D:\\resp\\task5\\task5.csproj",
         "projectName": "task5",
-        "projectPath": "D:\\ts\\task5\\task5\\task5.csproj",
+        "projectPath": "D:\\resp\\task5\\task5.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\ts\\task5\\task5\\obj\\",
+        "outputPath": "D:\\resp\\task5\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

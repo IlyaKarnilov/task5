@@ -22,7 +22,7 @@ namespace task5.Controllers
         [HttpPost]
         public IActionResult LoadMoreData(UserViewModel model)
         {
-            model.seed += model.page*10 -10;
+            model.seed += model.page -1;
 
             if(model.users != null) {
                 model.users.AddRange(GenerateFakeData(model.selectedRegion, model.errorCountVal, model.seed)); }
@@ -60,7 +60,7 @@ namespace task5.Controllers
                     seedRegion = "pl";
                     break;
                 default:
-                    seedRegion = "ru";
+                    seedRegion = "en_US";
                     break;
             }
             var fakeData = new List<User>();

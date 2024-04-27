@@ -1,6 +1,7 @@
 ﻿@using task5.Models.ViewModel
 @model UserViewModel;
 
+<meta charset="UTF-8">
 <h1>Fake Data Generator</h1>
 
 <div id="formContainer">
@@ -23,10 +24,6 @@
             <label asp-for="seed">Seed:</label>
             <input asp-for="seed" type="number" class="form-control" min="1" max="999" value="@Model.seed">
             <button type="button" onclick="generateRandomSeed()">Generate Random Seed</button>
-        </div>
-        <div class="form-group">
-            <label asp-for="page">Field:</label>
-            <input asp-for="page" type="number" class="form-control" min="1" max="999" value="@Model.page">
         </div>
         <button type="submit" class="btn btn-success">Generate Data</button>
     </form>
